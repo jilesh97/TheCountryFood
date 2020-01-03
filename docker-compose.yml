@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/src
+    ports:
+      - "3000:3000"
+
+    depends_on:
+      - mongo-service
+
+  mongo-service:
+      container_name: worldofzero-mongo
+      image: "mongo"
+      volumes:
+          - E:\2ndSemesterCourses\Mobile&internetComputing\Mongo_Data
+      ports:
+          - 27017:27017
